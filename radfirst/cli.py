@@ -1,5 +1,5 @@
 import argparse
-from .git_wrapper import create_branch, list_branches, merge_branch, commit_changes
+from .git_wrapper import create_branch, list_branches, merge_branch, commit_changes, init_repo
 
 def main():
     parser = argparse.ArgumentParser(description="RADFIRST Git Wrapper CLI")
@@ -16,6 +16,8 @@ def main():
     commit_parser = subparsers.add_parser('commit', help='Commit staged changes with a message')
     commit_parser.add_argument('message', help='Commit message')
 
+    init_parser = subparsers.add_parser('init', help='Initialize a new git repository')
+
     args = parser.parse_args()
 
     if args.command == 'create':
@@ -26,5 +28,7 @@ def main():
         print(merge_branch(args.source_branch))
     elif args.command == 'commit':
         print(commit_changes(args.message))
+    elif args.command == 'init':
+        print(init_repo())
     else:
         parser.print_help()
