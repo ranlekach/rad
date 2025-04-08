@@ -1,0 +1,13 @@
+[project]
+name = "radfirst"
+version = "0.1.0"
+description = "RADFIRST Git wrapper CLI"
+authors = [{ name = "Ran Lekach", email = "rani.lekach@gmail.com" }]
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+rad = "radfirst.cli:main"
